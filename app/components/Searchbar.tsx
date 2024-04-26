@@ -25,27 +25,27 @@ const Searchbar = () => {
             </TableHeader>
             <TableBody>
               <TableRow>
-                <TableCell className="pb-0">
+                <TableCell className="pb-1">
                   <Input type="text" placeholder="User ID" />
                 </TableCell>
-                <TableCell className="pb-0">
+                <TableCell className="pb-1">
                   <Input type="text" placeholder="User Name" />
                 </TableCell>
-                <TableCell className="pb-0">
+                <TableCell className="pb-1">
                   <Input type="email" placeholder="Email Address" />
                 </TableCell>
-                <TableCell className="pb-0">
-                  <Input type="date" placeholder="Start Date" />
+                <TableCell className="pb-1">
+                  <Input type="date" />
                 </TableCell>
-                <TableCell className="pb-0">
-                  <Input type="date" placeholder="End Date" />
+                <TableCell className="pb-1">
+                  <Input type="date" />
                 </TableCell>
               </TableRow>
             </TableBody>
           </Table>
         </div>
         <div className="col-span-3">
-          <Button className=" bg-sky-100 text-sky-700 shadow hover:bg-sky-100 hover:text-sky-700">
+          <Button className=" mb-1 bg-sky-100 text-sky-700 shadow hover:bg-sky-100 hover:text-sky-700">
             Search
           </Button>
         </div>

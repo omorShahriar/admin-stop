@@ -1,7 +1,9 @@
 import Pageheader from "@/components/Pageheader";
 import Searchbar from "@/components/Searchbar";
 import { Button } from "@/components/ui/button";
-
+import { columns } from "@/tables/users/columns";
+import { DataTable } from "@/components/ui/data-table";
+import { data } from "@/tables/users/dummy-data";
 const user = () => {
   return (
     <div className="">
@@ -13,6 +15,9 @@ const user = () => {
             Save
           </Button>
         </div>
+      </div>
+      <div className="container mx-auto py-10">
+        <DataTable columns={columns} data={data} />
       </div>
     </div>
   );

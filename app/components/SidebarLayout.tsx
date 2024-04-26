@@ -15,7 +15,7 @@ const navlinks: {
   icon: JSX.Element;
 }[] = [
   { name: "Dashboard", href: "/", icon: <LayoutDashboardIcon /> },
-  { name: "User Info", href: "/user", icon: <MailIcon /> },
+  { name: "User Info", href: "/users", icon: <MailIcon /> },
   { name: "Roles", href: "/roles", icon: <UsersRoundIcon /> },
   { name: "User Roles", href: "/user-roles", icon: <CalendarDaysIcon /> },
   { name: "Access Policy", href: "/access-policy", icon: <SendIcon /> },
