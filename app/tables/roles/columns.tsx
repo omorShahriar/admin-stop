@@ -7,7 +7,6 @@ import { Checkbox } from "@/components/ui/checkbox";
 export type User = {
   id: string;
   name: string;
-  email: string;
   startDate: string;
   endDate: string;
 };
@@ -35,15 +34,11 @@ export const columns: ColumnDef<User>[] = [
   },
   {
     accessorKey: "id",
-    header: "User ID",
+    header: "Role ID",
   },
   {
     accessorKey: "name",
-    header: "User Name",
-  },
-  {
-    accessorKey: "email",
-    header: "Email Address",
+    header: "Role Name",
   },
   {
     accessorKey: "startDate",
@@ -57,11 +52,11 @@ export const columns: ColumnDef<User>[] = [
     id: "access",
     header: "Access",
     cell: ({ row }) => {
-      const user = row.original;
+      const role = row.original;
 
       return (
         <Button asChild variant="ghost" size="icon">
-          <Link to={`/access-policy/users/${user.id}`}>
+          <Link to={`/access-policy/roles/${role.id}`}>
             <ClipboardPenLineIcon className="text-sky-500" />
           </Link>
         </Button>

@@ -8,7 +8,9 @@ import {
 } from "@/components/ui/table";
 import { Input } from "@/components/ui/input";
 import { Button } from "./ui/button";
-const Searchbar = () => {
+import { TableData } from "@/types";
+
+const Searchbar = ({ data }: { data: TableData[] }) => {
   return (
     <div>
       <div className="my-4 grid grid-cols-12 items-end gap-4">
@@ -16,30 +18,20 @@ const Searchbar = () => {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead className="">User ID</TableHead>
-                <TableHead>User Name</TableHead>
-                <TableHead>Email Address</TableHead>
-                <TableHead>Start Date</TableHead>
-                <TableHead>End Date</TableHead>
+                {data.map((d, i) => (
+                  <TableHead key={i} className="">
+                    {d.label}
+                  </TableHead>
+                ))}
               </TableRow>
             </TableHeader>
             <TableBody>
               <TableRow>
-                <TableCell className="pb-1">
-                  <Input type="text" placeholder="User ID" />
-                </TableCell>
-                <TableCell className="pb-1">
-                  <Input type="text" placeholder="User Name" />
-                </TableCell>
-                <TableCell className="pb-1">
-                  <Input type="email" placeholder="Email Address" />
-                </TableCell>
-                <TableCell className="pb-1">
-                  <Input type="date" />
-                </TableCell>
-                <TableCell className="pb-1">
-                  <Input type="date" />
-                </TableCell>
+                {data.map((d, i) => (
+                  <TableCell key={i} className="pb-1">
+                    <Input type={d.type} placeholder={d.placeholder} />
+                  </TableCell>
+                ))}
               </TableRow>
             </TableBody>
           </Table>
