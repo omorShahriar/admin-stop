@@ -3,18 +3,16 @@ import { Button } from "@/components/ui/button";
 import { Link } from "@remix-run/react";
 import { ClipboardPenLineIcon, Trash2Icon } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
-import EditUser from "./EditUser";
 
-export type User = {
+export type UserRole = {
   id: string;
-  name: string;
-  email: string;
+  roleId: string;
+  userId: string;
   startDate: string;
   endDate: string;
-  subRows?: User[];
 };
 
-export const columns: ColumnDef<User>[] = [
+export const columns: ColumnDef<UserRole>[] = [
   {
     id: "select",
     header: ({ table }) => (
@@ -37,15 +35,15 @@ export const columns: ColumnDef<User>[] = [
   },
   {
     accessorKey: "id",
+    header: "User Role ID",
+  },
+  {
+    accessorKey: "roleId",
+    header: "Role ID",
+  },
+  {
+    accessorKey: "userId",
     header: "User ID",
-  },
-  {
-    accessorKey: "name",
-    header: "User Name",
-  },
-  {
-    accessorKey: "email",
-    header: "Email Address",
   },
   {
     accessorKey: "startDate",
@@ -59,11 +57,11 @@ export const columns: ColumnDef<User>[] = [
     id: "access",
     header: "Access",
     cell: ({ row }) => {
-      const user = row.original;
+      const role = row.original;
 
       return (
         <Button asChild variant="ghost" size="icon">
-          <Link to={`/access-policy/users/${user.id}`}>
+          <Link to={`/access-policy/roles/${role.id}`}>
             <ClipboardPenLineIcon className="text-sky-500" />
           </Link>
         </Button>
@@ -78,7 +76,9 @@ export const columns: ColumnDef<User>[] = [
 
       return (
         <div className="flex items-center space-x-1">
-          <EditUser id={user.id} />
+          <Button variant="ghost" size="icon">
+            <ClipboardPenLineIcon className="text-sky-500" />
+          </Button>
           <Button variant="ghost" size="icon">
             <Trash2Icon className="text-red-500" />
           </Button>

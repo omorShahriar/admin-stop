@@ -1,27 +1,29 @@
+import { createId } from "@paralleldrive/cuid2";
+
 export const data = [
   {
-    id: "1",
+    id: createId(),
     name: "John Doe",
     email: "g@com",
     startDate: "2021-01-01",
     endDate: "2021-01-01",
   },
   {
-    id: "2",
+    id: createId(),
     name: "Jane Doe",
     email: "j@com",
     startDate: "2021-01-01",
     endDate: "2021-01-01",
   },
   {
-    id: "3",
+    id: createId(),
     name: "John Smith",
     email: "s@com",
     startDate: "2021-01-01",
     endDate: "2021-01-01",
   },
   {
-    id: "4",
+    id: createId(),
     name: "Jane Smith",
     email: "js@com",
     startDate: "2021-01-01",

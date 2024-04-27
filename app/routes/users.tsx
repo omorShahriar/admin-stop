@@ -1,11 +1,12 @@
 import Pageheader from "@/components/Pageheader";
 import Searchbar from "@/components/Searchbar";
-import { Button } from "@/components/ui/button";
 import { columns } from "@/tables/users/columns";
-import { DataTable } from "@/components/ui/data-table";
-import { data } from "@/tables/users/dummy-data";
 import type { MetaFunction } from "@remix-run/node";
 import { TableData } from "@/types";
+import { ClientOnly } from "remix-utils/client-only";
+import CreateNew from "@/components/CreateNew";
+import { useTableStore } from "@/store";
+import { DataTable } from "@/components/ui/data-table";
 
 export const meta: MetaFunction = () => {
   return [{ title: "AdminStop | Users" }];
@@ -20,19 +21,17 @@ const searchTableData: TableData[] = [
 ];
 
 const user = () => {
+  const userData = useTableStore((state) => state.users);
+
   return (
     <div className="">
       <Pageheader title="User Info" description="Create/Modify Users" />
       <Searchbar data={searchTableData} />
-      <div className="mt-4 grid grid-cols-12 gap-4">
-        <div className="col-span-3 col-start-10 ">
-          <Button className="bg-sky-100 text-sky-700 shadow hover:bg-sky-100 hover:text-sky-700">
-            Save
-          </Button>
-        </div>
-      </div>
+      <CreateNew type="users" />
       <div className="container mx-auto py-10">
-        <DataTable columns={columns} data={data} />
+        <ClientOnly fallback={null}>
+          {() => <DataTable columns={columns} data={userData} />}
+        </ClientOnly>
       </div>
     </div>
   );

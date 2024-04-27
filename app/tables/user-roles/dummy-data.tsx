@@ -3,25 +3,29 @@ import { createId } from "@paralleldrive/cuid2";
 export const data = [
   {
     id: createId(),
-    name: "admin",
+    userId: "1",
+    roleId: "1",
     startDate: "2021-01-01",
     endDate: "2021-01-01",
   },
   {
     id: createId(),
-    name: "user",
+    userId: "3",
+    roleId: "2",
     startDate: "2021-01-01",
     endDate: "2021-01-01",
   },
   {
     id: createId(),
-    name: "guest",
+    userId: "4",
+    roleId: "2",
     startDate: "2021-01-01",
     endDate: "2021-01-01",
   },
   {
     id: createId(),
-    name: "superuser",
+    userId: "3",
+    roleId: "3",
     startDate: "2021-01-01",
     endDate: "2021-01-01",
   },
